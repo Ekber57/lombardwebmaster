@@ -15,6 +15,7 @@ class Payment extends Model
         'required_amount',
         'payment_date',
         'payed_date',
+        'user'
  
        ];
 }

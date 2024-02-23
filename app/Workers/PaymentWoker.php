@@ -5,6 +5,7 @@ namespace App\Workers;
 use Carbon\Carbon;
 use App\Models\Payment;
 use App\DTOS\PaymentDTO;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class PaymentWoker
@@ -70,6 +71,7 @@ class PaymentWoker
         $payment->percentage_amount = $paymentDTO->credit->percentage_amount;
         $payment->remainder = $paymentDTO->credit->remainder;
         $payment->payed_date = Carbon::today();
+        $payment->user = Auth::user()->id;
         $payment->save();
         return $payment;
     }

@@ -23,6 +23,7 @@ return new class extends Migration
 
             $table->date("payed_date");
             $table->date("payment_date");
+            $table->unsignedBigInteger("user");
             $table->timestamps();
         });
     }
