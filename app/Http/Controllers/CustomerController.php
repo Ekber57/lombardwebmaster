@@ -16,11 +16,19 @@ class CustomerController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        $filter  = $request->query("filter");
         $this->authorize('index',self::class);
- 
-        return view("customerlist",["customers" => Customer::paginate(10)]);
+
+        if(!empty($filter)) {
+            $customers = Customer::search($filter);
+        }
+        else {
+            $customers = Customer::paginate(10); 
+        }
+   
+        return view("customerlist",["customers" => $customers]);
     }
 
     /**

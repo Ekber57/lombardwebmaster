@@ -51,6 +51,7 @@ background-color: #2e3131;
 
             <ul class="right hide-on-med-and-down">
           
+                <li><a href="/statics">statistika</a></li>
                 <li><a href="/customers">müştərilər</a></li>
                 <li><a href="/auth/users">mütəxəssislər</a></li>
                 <!-- Dropdown Trigger -->

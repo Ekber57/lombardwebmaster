@@ -8,6 +8,7 @@ use App\Http\Controllers\Calculator;
 use App\Http\Controllers\CreditController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\PayController;
+use App\Http\Controllers\StaticsController;
 use App\Models\Payment;
 use App\Workers\PaymentWoker;
 use App\Workers\PercentageWorker;
@@ -62,6 +63,8 @@ Route::get("/credits/create/{customer}",[CreditController::class,"create"]);
 Route::get("/payments/pay/{credit}",[PayController::class,"index"]);
 Route::post("/payments/pay",[PayController::class,"create"]);
 
+// Statics
+Route::get("/statics",[StaticsController::class,"index"]);
 
 
 
