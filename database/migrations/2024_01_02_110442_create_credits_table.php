@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -25,9 +26,9 @@ return new class extends Migration
             $table->date("next_payment_date");
             $table->date("last_payment_date")->nullable();
             $table->json("data");
-            $table->smallInteger("payment_index")->default(0);
             $table->smallInteger("duration");
             $table->smallInteger("status")->default(0);
+            $table->unsignedBigInteger("user");
             $table->timestamps();
         });
     }

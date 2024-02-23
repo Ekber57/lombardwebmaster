@@ -25,7 +25,7 @@ class Credit extends Model
      'last_payment_date',
      'duration',
      'data',
-     'payment_index'
+     'user'
     ];
     public function customer()
     {

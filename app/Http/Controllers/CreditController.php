@@ -10,6 +10,7 @@ use App\Workers\CalculatorWorker;
 use App\Workers\PercentageWorker;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use stdClass;
 
 class CreditController extends Controller
@@ -76,6 +77,7 @@ class CreditController extends Controller
             "data" => $creditDatas->data,
             "annuted" => round($creditDatas->annuted,2),
             "duration" => $request->duration,
+            "user" => Auth::user()->id
         ]);
         return view("creditcreateform",["message" => "Kredit əlavə edildi"]);
     }
