@@ -47,8 +47,7 @@ background-color: #2e3131;
     </ul>
     <nav>
         <div class="nav-wrapper">
-            {{-- <a href="/" class="brand-logo">L O M B A RD </a> --}}
-
+            <a href="/" class="brand-logo"><img src="https://iili.io/JGTkaON.png" alt="JGTkaON.png" height="60" border="0"></a>
             <ul class="right hide-on-med-and-down">
           
                 <li><a href="/statics">statistika</a></li>

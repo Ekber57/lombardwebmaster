@@ -56,7 +56,16 @@
 
         </tbody>
     </table>
+@if ($customers->count() == 0) 
 
+@component("components.alert",[
+    "message" => " axtarisiniza uygun hec bir musteri tapilmadi",
+    "error" => "1"
+    ])
+       
+   @endcomponent
+    
+@endif
     {{ $customers->render('custompagination') }}
     <script>
         function search() {

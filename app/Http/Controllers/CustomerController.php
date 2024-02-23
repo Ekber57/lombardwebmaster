@@ -25,10 +25,13 @@ class CustomerController extends Controller
             $customers = Customer::search($filter);
         }
         else {
-            $customers = Customer::paginate(10); 
+            $customers = Customer::paginate(8); 
         }
    
-        return view("customerlist",["customers" => $customers]);
+        return view("customerlist",[
+            "customers" => $customers,
+            "filter" => $filter
+        ]);
     }
 
     /**
