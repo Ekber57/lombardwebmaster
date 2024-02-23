@@ -78,6 +78,7 @@
                 window.location.href = "/customers?filter=" + encodeURIComponent(query);
         }
         $(document).ready(function() {
+            $("#query").focus();
         $('#query').keypress(function(event) {
            
             // Check if the Enter key was pressed (key code 13)
@@ -93,6 +94,7 @@
                 // Redirect to the search page with filtered query
                 window.location.href = "/customers?filter=" + encodeURIComponent(query);
             }
+          
         });
     });
     </script>

@@ -16,6 +16,8 @@ Swal.fire({
  
  @endphp 
 
+}).then(function(){
+   document.getElementById("query").focus()
 })
 </script>
 @endpush     
