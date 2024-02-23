@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("credit_id");
-            $table->decimal("amount",10,2);
-            $table->decimal("required_amount",2);
-            $table->decimal("base_debt",10,2);
-            $table->decimal("percentage_amount",10,2);
-            $table->decimal("remainder",10,2);
-            $table->decimal("deleted_amount",10,2);
+            $table->decimal("amount",12,2);
+            $table->decimal("required_amount",12,2);
+            $table->decimal("base_debt",12,2);
+            $table->decimal("percentage_amount",12,2);
+            $table->decimal("remainder",12,2);
+            $table->decimal("deleted_amount",12,2);
 
             $table->date("payed_date");
             $table->date("payment_date");

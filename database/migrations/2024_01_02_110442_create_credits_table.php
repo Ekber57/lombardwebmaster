@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('credits', function (Blueprint $table) {
             $table->id();
             $table->foreignId("customer_id")->references("id")->on("customers");
-            $table->float("percentage",4,2);
-            $table->float("annuted",4,2);
-            $table->float("percentage_amount",4,2);
-            $table->float("base_debt",4,2);
-            $table->float("amount",6,2);
-            $table->float("remainder",6,2);
-            $table->float("balance",6,2);
-            $table->float("payment_amount",6,2);
+            $table->float("percentage",12,2);
+            $table->float("annuted",12,2);
+            $table->float("percentage_amount",12,2);
+            $table->float("base_debt",12,2);
+            $table->float("amount",12,2);
+            $table->float("remainder",12,2);
+            $table->float("balance",12,2);
+            $table->float("payment_amount",12,2);
             $table->date("next_payment_date");
             $table->date("last_payment_date")->nullable();
             $table->json("data");

@@ -28,15 +28,16 @@ class AuthController extends Controller {
     public function register(RegistirationRequest $request)
     {
         $this->authorize('create user',self::class);
+        $username = $request['name'].$request['lastname'].rand(1,10000);
         $user = User::create([
             'name' => $request['name'],
             'middlename' => $request['middlename'],
             'lastname' => $request['lastname'],
-            'email' => $request['name'].$request['lastname'].rand(1,10000)."@franklin.mail",
+            'email' => $username."@franklin.mail",
             'password' => bcrypt($request['password']),
         ]);
     
-        return view("auth.registiration", ["message" => "ok"]);
+        return view("auth.registiration", ["message" => "istifadeci adi - ".$username."  "]);
     }
 
     
