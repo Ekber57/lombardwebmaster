@@ -34,6 +34,9 @@ class DatabaseSeeder extends Seeder
        
         //! Statics permissons 
         Permission::create(["name" => "show statics"]);
+       
+        //! Percentage permissons 
+        Permission::create(["name" => "change percentage"]);
 
         $admin = User::create([
             "name" => "Benjamin",

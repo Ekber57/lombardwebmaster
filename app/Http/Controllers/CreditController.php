@@ -50,7 +50,10 @@ class CreditController extends Controller
     public function create(Customer $customer)
     {
         $this->authorize('create credit',self::class);
-        return view("creditcreateform",["customer" => $customer]);
+        return view("creditcreateform",[
+            "customer" => $customer,
+            "percentage" => PercentageWorker::getPercentage()
+        ]);
     }
 
     /**

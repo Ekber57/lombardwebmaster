@@ -60,10 +60,33 @@ MUSTERI FORMASI
                     <textarea id="phone" class="materialize-textarea"></textarea>
                     <label for="phone">Elave qeydler</label>
                 </div>
-             
+                <div class="input-field col s4  ">
+                    <input 
+                    
+                    @can("change percentage")
+                    @else
+                    value="{{$percentage}}"
+                    disabled
+                    @endcan 
+                    
+                    name="percentage" id="percentage" type="number" class="validate">
+                    <label for="percentage">Faiz dərəcəsi</label>
+                    <p>
+                        <label>
+                          <input
+                          @can("change percentage")
+                          @else
+                          checked
+                          disabled
+                          @endcan 
+                          id="detectorForSystemPercentage" type="checkbox" />
+                          <span>sistem faizi</span>
+                        </label>
+                      </p>
+                </div>
              
             </div>
-            
+
             <div class="row">
                 
                 <div class="input-field col s6">
@@ -78,4 +101,16 @@ MUSTERI FORMASI
         </form>
         @endisset
     </div>
+    <script>
+        $("#detectorForSystemPercentage").on("change",function() {
+           
+            if(this.checked) {
+                $("#percentage").focus()
+                $("#percentage").val("{{$percentage}}")
+            }
+            else {
+                $("#percentage").val(0)
+            }
+        })
+    </script>
 @endsection

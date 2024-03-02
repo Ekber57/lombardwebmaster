@@ -60,11 +60,11 @@ class StaticsWoker {
         ->sum("amount");
     }
     private function allWaitedAmount() {
-        $balances = Credit::where("status","=",0)
-        ->sum("balance");
+        $balances = Payment::where("deleted_amount",">",0)->sum("amount");
+
         $remainders = Credit::where("status","=",0)
-        ->sum("remainder");
-        return  $balances - $remainders;
+        ->sum("balance");
+        return   $remainders - $balances;
     }
 
 }

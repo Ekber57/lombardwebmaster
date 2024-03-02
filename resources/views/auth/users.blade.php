@@ -26,8 +26,7 @@
                         <a class='dropdown-trigger btn ' href='#' data-target='user_option{{$user->id}}'><i class="material-icons">add</i></a>
                         <!-- Dropdown Structure -->
                         <ul id='user_option{{$user->id}}' class='dropdown-content' style="min-width:15%">
-                          <li><a href="/auth/users/show/{{$user->id}}"><i class="material-icons">edit</i>məlumatları goster</a></li>
-                          <li><a href="/credits/create/{{$user->id}}"><i class="material-icons">account_balance</i>kredit ver</a></li>
+                          <li><a href="/auth/users/show/{{$user->id}}"><i class="material-icons">edit</i>icazeleri goster</a></li>
                         </ul>
 
                     </td>
