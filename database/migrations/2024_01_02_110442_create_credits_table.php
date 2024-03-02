@@ -25,6 +25,7 @@ return new class extends Migration
             $table->float("payment_amount",12,2);
             $table->date("next_payment_date");
             $table->date("last_payment_date")->nullable();
+            $table->text("note");
             $table->json("data");
             $table->smallInteger("duration");
             $table->smallInteger("status")->default(0);

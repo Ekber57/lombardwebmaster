@@ -51,6 +51,7 @@ class PaymentWoker
             $paymentDTO->credit->last_payment_date = Carbon::today();
             $paymentDTO->credit->save();
             DB::commit();    
+            return $paymentDTO;
             //code...
         } catch (\Throwable $th) {
             DB::rollBack();
@@ -73,6 +74,7 @@ class PaymentWoker
         $payment->payed_date = Carbon::today();
         $payment->user = Auth::user()->id;
         $payment->save();
+        $paymentDTO->paymentId = $payment->id;
         return $payment;
     }
 }

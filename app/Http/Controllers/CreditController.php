@@ -65,9 +65,19 @@ class CreditController extends Controller
         $this->authorize('create credit',self::class);
         // percentage logic
         $percentage = PercentageWorker::getPercentage();
+
+        if((Auth::user())->hasPermissionTo("change percentage")){
+            $percentage = $request->percentage;
+        }
         //
         $creditDatas = $this->countCreditDatas($request->amount,$request->duration,$percentage);
-        Credit::create([
+        if(!empty($request->note)) {
+            $note = $request->note;
+        }
+        else {
+            $note = "hec bir qeyd daxil edilmeyib";
+        }
+        $credit = Credit::create([
             "customer_id" => $request->customer_id,
             "amount" => $request->amount,
             "remainder" => $creditDatas->remainder,
@@ -80,14 +90,22 @@ class CreditController extends Controller
             "data" => $creditDatas->data,
             "annuted" => round($creditDatas->annuted,2),
             "duration" => $request->duration,
-            "user" => Auth::user()->id
+            "user" => Auth::user()->id,
+            "note" => $note
         ]);
-        return view("creditcreateform",["message" => "Kredit əlavə edildi"]);
+        return redirect("/credits/showcheck/".$credit->id);
     }
 
     /**
      * Display the specified resource.
      */
+
+    public function showCehck(Credit $credit) {
+        $credit = Credit::find($credit->id);
+        $data = json_decode($credit->data);
+        return view("creditshow",[
+            'credit' => $credit,'data' => $data]);
+    }
     public function show(Credit $credit)
     {
         echo $credit->id;

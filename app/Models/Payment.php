@@ -18,4 +18,8 @@ class Payment extends Model
         'user'
  
        ];
+       public function credit()
+       {
+           return Credit::find($this->credit_id);
+       }
 }

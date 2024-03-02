@@ -28,11 +28,11 @@ td {
 
   <tr>
     <td>QEBZ NOMRESI</td>
-    <td> N  {{$payment->payment->id }}</td>
+    <td> N  {{$payment->id }}</td>
   </tr>
   <tr>
     <td>Musteri</td>
-    <td>  {{$payment->credit->customer()->name }} {{$payment->credit->customer()->lastname }} {{$payment->credit->customer()->middlename }}</td>
+    <td>  {{$payment->credit()->customer()->name }} {{$payment->credit()->customer()->lastname }} {{$payment->credit()->customer()->middlename }}</td>
   </tr>
 
   <tr>
@@ -41,7 +41,7 @@ td {
   </tr>
   <tr>
     <td> Qaliq</td>
-    <td> {{$payment->credit->remainder}} ₼</td>
+    <td> {{$payment->credit()->remainder}} ₼</td>
   </tr>
   <tr>
     <td> Odenisi eden </td>

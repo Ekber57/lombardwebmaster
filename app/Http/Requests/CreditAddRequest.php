@@ -25,6 +25,8 @@ class CreditAddRequest extends FormRequest
             'customer_id' => 'required|string|max:100|exists:customers,id',
             'amount' => 'required|numeric|min:50|max:10000',
             'duration' => 'required|numeric|min:2|max:48',
+            'percentage' => 'required|numeric|min:1',
+
         ];
     }
     public function messages()
@@ -36,6 +38,7 @@ class CreditAddRequest extends FormRequest
             'duration.required' => 'Müddət daxil edin.',
             'duration.max' => 'Müddət maksimum 48 ay ola bilər ',
             'duration.min' => 'Müddət minimum 2 ay ola bilər ',
+            'percentage.min' => 'Faiz minimum 1%  ola bilər ',
 
         ];
     }

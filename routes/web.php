@@ -9,6 +9,7 @@ use App\Http\Controllers\CreditController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\StaticsController;
+use App\Models\Credit;
 use App\Models\Payment;
 use App\Workers\PaymentWoker;
 use App\Workers\PercentageWorker;
@@ -55,6 +56,7 @@ Route::resource("/customers",CustomerController::class);
 // Credits routes
 Route::resource("/credits",CreditController::class)->only(["store","edit","destroy","update","index","show"])->except(["create"]);
 Route::get("/credits/create/{customer}",[CreditController::class,"create"]);
+Route::get("/credits/showcheck/{credit}",[CreditController::class,"showCehck"]);
 
 
 
@@ -62,10 +64,9 @@ Route::get("/credits/create/{customer}",[CreditController::class,"create"]);
 // Payments 
 Route::get("/payments/pay/{credit}",[PayController::class,"index"]);
 Route::post("/payments/pay",[PayController::class,"create"]);
-
+Route::get("/payments/showcheck/{payment}",[PayController::class,"showCehck"]);
 // Statics
 Route::get("/statics",[StaticsController::class,"index"]);
-
 
 
 

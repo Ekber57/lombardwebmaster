@@ -57,8 +57,8 @@ MUSTERI FORMASI
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <textarea id="phone" class="materialize-textarea"></textarea>
-                    <label for="phone">Elave qeydler</label>
+                    <textarea name="note" id="note" class="materialize-textarea"></textarea>
+                    <label for="note">Elave qeydler</label>
                 </div>
                 <div class="input-field col s4  ">
                     <input 
@@ -68,7 +68,7 @@ MUSTERI FORMASI
                     value="{{$percentage}}"
                     disabled
                     @endcan 
-                    
+                    value="{{$percentage}}"
                     name="percentage" id="percentage" type="number" class="validate">
                     <label for="percentage">Faiz dərəcəsi</label>
                     <p>

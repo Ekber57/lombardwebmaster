@@ -7,6 +7,7 @@ use App\DTOS\PaymentDTO;
 use Illuminate\Http\Request;
 use App\Workers\PaymentWoker;
 use App\Http\Requests\PayRequest;
+use App\Models\Payment;
 
 class PayController extends Controller
 {
@@ -27,14 +28,19 @@ class PayController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+
+    public function showCehck(Payment $payment) {
+        return view("payedcheck",[
+            "payment" => $payment,
+        ]);
+    }
     public function create(PayRequest $payRequest)
     {
         $payment = new PaymentDTO($payRequest->amount,$payRequest->credit_id);
         $paymentWorker = new PaymentWoker();
-        $paymentWorker->pay($payment);
-        return view("payedcheck",[
-            "payment" => $payment,
-        ]);
+        $payment  =  $paymentWorker->pay($payment);
+       
+        return redirect("/payments/showcheck/".$payment->paymentId);
     }    
 
     /**
