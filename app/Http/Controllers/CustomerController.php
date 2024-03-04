@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Credit;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use App\Policies\CustomerPolicy;
@@ -100,6 +101,12 @@ class CustomerController extends Controller
     }
     public function show(Customer $customer)
     {
+    $this->authorize('show customer list',self::class);
+        $credits = Credit::where("customer_id","=",$customer->id)->get();
+        return view("customershow",[
+            "credits" => $credits,
+            "customer"=>$customer
+        ]);
     
     }
 }

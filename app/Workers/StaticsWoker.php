@@ -67,6 +67,13 @@ class StaticsWoker {
         return   $remainders - $balances;
     }
 
+
+
+
+    private function expectedAmountForThisMonth() {
+        // Credit::where("payment_date")
+    }
+
 }
 
 

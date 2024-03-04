@@ -10,6 +10,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\StaticsController;
 use App\Models\Credit;
+use App\Models\Customer;
 use App\Models\Payment;
 use App\Workers\PaymentWoker;
 use App\Workers\PercentageWorker;
@@ -50,6 +51,9 @@ Route:: post("/calculator",[Calculator::class,"calculate"])->middleware("auth");
 // Customer routes
 Route::resource("/customers",CustomerController::class)->middleware("auth");
 
+Route::get("/customers/show/{customer}",[CustomerController::class,"show"])->middleware("auth");
+
+
 
 
 
@@ -67,6 +71,12 @@ Route::post("/payments/pay",[PayController::class,"create"])->middleware("auth")
 Route::get("/payments/showcheck/{payment}",[PayController::class,"showCehck"])->middleware("auth");
 // Statics
 Route::get("/statics",[StaticsController::class,"index"])->middleware("auth");
+
+
+
+
+
+
 
 
 

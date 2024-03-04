@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Customer;
 use App\Models\User;
 use Faker\Provider\ar_EG\Person;
 use Illuminate\Database\Seeder;
@@ -49,5 +50,7 @@ class DatabaseSeeder extends Seeder
         foreach(Permission::all() as $permission) {
             $admin->givePermissionTo($permission->name);
         }
+
+        Customer::factory()->count(10000)->create();
     }
 }

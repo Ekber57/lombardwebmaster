@@ -45,6 +45,8 @@
                         <ul id='customer_option{{ $customer->id }}' class='dropdown-content' style="min-width:15%">
                             <li><a href="/credits/create/{{ $customer->id }}"><i
                                 class="material-icons">account_balance</i>kredit ver</a></li>
+                            <li><a href="/customers/show/{{ $customer->id }}"><i
+                                class="material-icons">remove_red_eye</i>melumatlari  goster</a></li>
 
                             <li><a href="/customers/{{ $customer->id }}/edit"><i class="material-icons">edit</i>məlumatları
                                     yenilə</a></li>
