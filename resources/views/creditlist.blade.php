@@ -55,7 +55,7 @@
                     @foreach ($credits as $credit)
                         <tr>
 
-                            <td>{{ $credit->name . ' ' . $credit->lastname . ' ' . $credit->middlename }}</td>
+                            <td onclick="showCustomer({{$credit->customer_id}})">{{ $credit->name . ' ' . $credit->lastname . ' ' . $credit->middlename }}</td>
                             <td>{{ $credit->annuted }} ₼</td>
                             <td>{{ $credit->amount }} ₼</td>
                             <td>{{ $credit->balance }} ₼</td>
@@ -96,4 +96,10 @@
 
             {{ $credits->render('custompagination') }}
         @endif
+
+<script>
+function showCustomer(id) {
+    window.location.href = '/customers/show/'+id
+}
+</script>
     @endsection
