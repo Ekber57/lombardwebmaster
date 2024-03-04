@@ -43,10 +43,12 @@
                                 class="material-icons">add</i></a>
                         <!-- Dropdown Structure -->
                         <ul id='customer_option{{ $customer->id }}' class='dropdown-content' style="min-width:15%">
+                            <li><a href="/credits/create/{{ $customer->id }}"><i
+                                class="material-icons">account_balance</i>kredit ver</a></li>
+
                             <li><a href="/customers/{{ $customer->id }}/edit"><i class="material-icons">edit</i>məlumatları
                                     yenilə</a></li>
-                            <li><a href="/credits/create/{{ $customer->id }}"><i
-                                        class="material-icons">account_balance</i>kredit ver</a></li>
+                           
                         </ul>
 
                     </td>

@@ -25,8 +25,8 @@ use App\Workers\PercentageWorker;
 |
 */
 
-Route::get("/",[Calculator::class,"index"]);
-Route:: post("/calculator",[Calculator::class,"calculate"]);
+Route::get("/",[Calculator::class,"index"])->middleware("auth");
+Route:: post("/calculator",[Calculator::class,"calculate"])->middleware("auth");
 
 
 
@@ -35,38 +35,38 @@ Route:: post("/calculator",[Calculator::class,"calculate"]);
 
 // Users
 
-Route::get("/auth/users",[UsersController::class,"index"]);
-Route::get("/auth/users/show/{user}",[UsersController::class,"show"]);
-Route::post("/auth/users/show/{user}/edit",[UsersController::class,"edit"]);
+Route::get("/auth/users",[UsersController::class,"index"])->middleware("auth");
+Route::get("/auth/users/show/{user}",[UsersController::class,"show"])->middleware("auth");
+Route::post("/auth/users/show/{user}/edit",[UsersController::class,"edit"])->middleware("auth");
 
 
 // Calculator
-Route::get("/calculator",[Calculator::class,"index"]);
-Route:: post("/calculator",[Calculator::class,"calculate"]);
+Route::get("/calculator",[Calculator::class,"index"])->middleware("auth");
+Route:: post("/calculator",[Calculator::class,"calculate"])->middleware("auth");
 
 
 
 
 // Customer routes
-Route::resource("/customers",CustomerController::class);
+Route::resource("/customers",CustomerController::class)->middleware("auth");
 
 
 
 
 // Credits routes
-Route::resource("/credits",CreditController::class)->only(["store","edit","destroy","update","index","show"])->except(["create"]);
-Route::get("/credits/create/{customer}",[CreditController::class,"create"]);
-Route::get("/credits/showcheck/{credit}",[CreditController::class,"showCehck"]);
+Route::resource("/credits",CreditController::class)->only(["store","edit","destroy","update","index","show"])->except(["create"])->middleware("auth");
+Route::get("/credits/create/{customer}",[CreditController::class,"create"])->middleware("auth");
+Route::get("/credits/showcheck/{credit}",[CreditController::class,"showCehck"])->middleware("auth");
 
 
 
 
 // Payments 
-Route::get("/payments/pay/{credit}",[PayController::class,"index"]);
-Route::post("/payments/pay",[PayController::class,"create"]);
-Route::get("/payments/showcheck/{payment}",[PayController::class,"showCehck"]);
+Route::get("/payments/pay/{credit}",[PayController::class,"index"])->middleware("auth");
+Route::post("/payments/pay",[PayController::class,"create"])->middleware("auth");
+Route::get("/payments/showcheck/{payment}",[PayController::class,"showCehck"])->middleware("auth");
 // Statics
-Route::get("/statics",[StaticsController::class,"index"]);
+Route::get("/statics",[StaticsController::class,"index"])->middleware("auth");
 
 
 
@@ -74,8 +74,8 @@ Route::get("/statics",[StaticsController::class,"index"]);
 // Auth routes
 Route::get("/auth/login",function() {
     return view("auth.login");
-});
+})->name("login");
 Route:: post('/auth/login',[AuthController::class,"login"]);
 
-Route::get("/auth/register",[AuthController::class,"showRegisterForm"]);
-Route::post('/auth/register',[AuthController::class,"register"]);
+Route::get("/auth/register",[AuthController::class,"showRegisterForm"])->middleware("auth");
+Route::post('/auth/register',[AuthController::class,"register"])->middleware("auth");
