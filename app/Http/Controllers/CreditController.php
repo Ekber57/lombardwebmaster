@@ -109,6 +109,7 @@ class CreditController extends Controller
     }
     public function show(Credit $credit)
     {
+        $this->authorize('show credit',self::class);
         return view("showcreditinformation",[
             "credit" => $credit,
             "payments" => Payment::getByCreditId($credit)

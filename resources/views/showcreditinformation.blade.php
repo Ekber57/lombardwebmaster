@@ -27,9 +27,9 @@ th,td {
         
           <tr>
             <td>{{$credit->id}}</td>
-            <td>{{$credit->amount}}</td>
-            <td>{{$credit->remainder}}</td>
-            <td>{{$credit->percentage}}</td>
+            <td>{{$credit->amount}} ₼</td>
+            <td>{{$credit->remainder}} ₼</td>
+            <td>{{$credit->percentage}} ₼</td>
             <td>{{ \Carbon\Carbon::parse($credit->created_at)->format('d.m.Y') }}</td>
 
           </tr>
@@ -55,8 +55,8 @@ th,td {
         @endif
         @foreach ($payments as $payment )
         <tr>
-          <td>{{$payment->amount}}</td>
-          <td>{{$payment->remainder}}</td>
+          <td>{{$payment->amount}} ₼</td>
+          <td>{{$payment->remainder}} ₼</td>
           <td>{{ \Carbon\Carbon::parse($payment->created_at)->format('d.m.Y') }}</td>
 
           <td>

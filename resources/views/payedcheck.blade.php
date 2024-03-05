@@ -22,7 +22,7 @@ td {
 </style>
 </head>
 <body>
- <img class="stamp" src="https://iili.io/JEsQWB4.png" alt="JEsQWB4.png"  border="0">
+ <img class="stamp" src="{{asset("/stamp.png")}}" alt="JEsQWB4.png"  border="0">
 <table style="width:100%">
 
 

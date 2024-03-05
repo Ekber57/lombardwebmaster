@@ -19,7 +19,7 @@
 <div class="row">
     <h1 style="margin-left:3%"> ELIT LOMBARD</h1>
     {{-- <div class="col s12">This div is 12-columns wide on all screen sizes</div> --}}
-    <div class="col s6"><img src="https://iili.io/JGH4rXI.md.png" alt="JGH4rXI.md.png" border="0">
+    <div class="col s6"><img src="{{asset("/gold.png")}}" alt="JGH4rXI.md.png" border="0">
  </div>
     <div class="col s6">
         @isset($message)
