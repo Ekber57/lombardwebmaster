@@ -6,6 +6,7 @@ use App\DTOS\Annuitet;
 use App\Http\Requests\CreditAddRequest;
 use App\Models\Credit;
 use App\Models\Customer;
+use App\Models\Payment;
 use App\Workers\CalculatorWorker;
 use App\Workers\PercentageWorker;
 use Carbon\Carbon;
@@ -108,7 +109,10 @@ class CreditController extends Controller
     }
     public function show(Credit $credit)
     {
-        echo $credit->id;
+        return view("showcreditinformation",[
+            "credit" => $credit,
+            "payments" => Payment::getByCreditId($credit)
+        ]);
     }
 
     /**

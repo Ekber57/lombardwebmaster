@@ -22,4 +22,8 @@ class Payment extends Model
        {
            return Credit::find($this->credit_id);
        }
+
+       public static function getByCreditId(Credit $credit) {
+        return self::where("credit_id",'=',$credit->id)->orderBy("created_at","DESC")->paginate(7);
+       }
 }

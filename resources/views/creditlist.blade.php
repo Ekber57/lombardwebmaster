@@ -56,15 +56,15 @@
                         <tr>
 
                             <td onclick="showCustomer({{$credit->customer_id}})">{{ $credit->name . ' ' . $credit->lastname . ' ' . $credit->middlename }}</td>
-                            <td>{{ $credit->annuted }} ₼</td>
-                            <td>{{ $credit->amount }} ₼</td>
-                            <td>{{ $credit->balance }} ₼</td>
-                            <td>{{ $credit->remainder }} ₼</td>
-                            <td>{{ $credit->percentage }} %</td>
-                            <td>{{ $credit->base_debt }} ₼</td>
-                            <td>{{ $credit->percentage_amount }} ₼</td>
-                            <td>{{ $credit->payment_amount }} ₼</td>
-                            <td>{{ \Carbon\Carbon::parse($credit->next_payment_date)->format('d.m.Y') }}</td>
+                            <td onclick="showCredit({{$credit->id}})">{{ $credit->annuted }} ₼</td>
+                            <td onclick="showCredit({{$credit->id}})">{{ $credit->amount }} ₼</td>
+                            <td onclick="showCredit({{$credit->id}})">{{ $credit->balance }} ₼</td>
+                            <td onclick="showCredit({{$credit->id}})">{{ $credit->remainder }} ₼</td>
+                            <td onclick="showCredit({{$credit->id}})">{{ $credit->percentage }} %</td>
+                            <td onclick="showCredit({{$credit->id}})">{{ $credit->base_debt }} ₼</td>
+                            <td onclick="showCredit({{$credit->id}})">{{ $credit->percentage_amount }} ₼</td>
+                            <td onclick="showCredit({{$credit->id}})">{{ $credit->payment_amount }} ₼</td>
+                            <td onclick="showCredit({{$credit->id}})">{{ \Carbon\Carbon::parse($credit->next_payment_date)->format('d.m.Y') }}</td>
 
 
                             @php
@@ -100,6 +100,9 @@
 <script>
 function showCustomer(id) {
     window.location.href = '/customers/show/'+id
+}
+function showCredit(id) {
+    window.location.href = '/credits/'+id
 }
 </script>
     @endsection
