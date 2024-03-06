@@ -75,8 +75,12 @@ th,td {
   
               @endif
     
-              <li><a href="/credits/showcheck/{{ $credit->id }}"><i
+              <li><a href="/credits/{{ $credit->id }}"><i
                 class="material-icons">remove_red_eye</i>melumatlari  goster</a></li>
+           
+              <li><a href="/credits/showcheck/{{ $credit->id }}"><i
+                class="material-icons">assignment
+              </i>  ceki   goster</a></li>
            
             </ul>
 
