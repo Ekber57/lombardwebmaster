@@ -25,6 +25,7 @@ background-color:red;
 background-color: #e8eef1;
 }
 .page-footer {
+padding: 3%;
 background-color: #2e3131;
 }
 
@@ -105,7 +106,7 @@ background-color: #2e3131;
 
 
     <footer class="page-footer">
-        <div class="container">
+        {{-- <div class="container">
             <div class="row">
                 <div class="col l6 s12">
                     <h5 class="white-text">Texnologiyalar</h5>
@@ -124,12 +125,12 @@ background-color: #2e3131;
                         <li><a class="grey-text text-lighten-3" href="#!">Websignal qurulumu</a></li>
                     </ul>
                 </div>
-            </div>
+            </div> --}}
         </div>
         <div class="footer-copyright">
             <div class="container">
-                © 2023 WEBSIGNAL
-                {{-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> --}}
+                © 2023 FRANKLIN 
+                <a class="grey-text text-lighten-4 right" href="https://www.facebook.com/ekber57/">Elaqe</a>
             </div>
         </div>
     </footer>

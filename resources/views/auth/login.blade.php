@@ -58,4 +58,5 @@ GIRIS
             
         </form>
     </div>
+    </div>
 @endsection

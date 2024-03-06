@@ -129,4 +129,7 @@
             }
         })
     </script>
+
+</div>
+
 @endsection
