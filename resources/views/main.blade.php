@@ -47,7 +47,7 @@ background-color: #2e3131;
 
     </ul>
     <nav>
-        <div class="nav-wrapper">
+        <div class="nav-wrapper" style="background-color: #075aaa">
             <a href="/" class="brand-logo"><img src="https://iili.io/JGTkaON.png" alt="JGTkaON.png" height="60" border="0"></a>
             <ul class="right hide-on-med-and-down">
           
