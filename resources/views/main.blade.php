@@ -28,6 +28,10 @@ background-color: #e8eef1;
 padding: 3%;
 background-color: #2e3131;
 }
+td {
+    padding: 0.5%;
+    margin-bottom: 15%;
+}
 
 
 }
