@@ -20,7 +20,7 @@ class CustomerController extends Controller
     public function index(Request $request)
     {
         $filter  = $request->query("filter");
-        $this->authorize('index',self::class);
+        $this->authorize('show customer list',self::class);
 
         if(!empty($filter)) {
             $customers = Customer::search($filter);
