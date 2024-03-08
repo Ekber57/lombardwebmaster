@@ -23,6 +23,10 @@
 
 
 ![Numune](example_images/Example0.png)
+![Numune](example_images/Example1.png)
+![Numune](example_images/Example2.png)
+![Numune](example_images/Example3.png)
+![Numune](example_images/Example4.png)
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
