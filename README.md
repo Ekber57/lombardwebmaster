@@ -20,6 +20,9 @@
 
 - **Mail** Ekberquliyev57@gmail.com
 - **Telefon** 055 988 42 27
+
+
+![Numune](example_images/Example0.png)
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
