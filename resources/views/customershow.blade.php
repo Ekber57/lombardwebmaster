@@ -12,6 +12,9 @@ th,td {
 </div>
 
 <div class="col s8">
+  <div class=" right-align ">
+    <a href="/credits/create/{{$customer->id}}" class="waves-effect waves-light btn">kredit ver</a>
+</div>
     <table>
         <thead>
           <tr>
@@ -48,8 +51,8 @@ th,td {
         @foreach ($credits as $credit )
         <tr>
           <td>N {{$credit->id}}</td>
-          <td>{{$credit->amount}}</td>
-          <td>{{$credit->remainder}}</td>
+          <td>{{$credit->amount}} ₼</td>
+          <td>{{$credit->remainder}} %</td>
           <td>
          @switch($credit->status)
              @case(0)
@@ -87,9 +90,10 @@ th,td {
         </td>
         </tr>
         @endforeach
-       
+   
         </tbody>
       </table>
+      {{ $credits->render('custompagination') }}
 </div>
 
 </div>

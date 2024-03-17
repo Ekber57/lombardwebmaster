@@ -1,19 +1,13 @@
 <?php
-
-use App\DTOS\PaymentDTO;
+use App\Workers\CronWorker;
+use App\Http\Controllers\Calculator;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PayController;
+use App\Http\Controllers\CreditController;
+use App\Http\Controllers\StaticsController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\auth\UsersController;
-use App\Http\Controllers\Calculator;
-use App\Http\Controllers\CreditController;
-use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\PayController;
-use App\Http\Controllers\StaticsController;
-use App\Models\Credit;
-use App\Models\Customer;
-use App\Models\Payment;
-use App\Workers\PaymentWoker;
-use App\Workers\PercentageWorker;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,3 +83,9 @@ Route:: post('/auth/login',[AuthController::class,"login"]);
 
 Route::get("/auth/register",[AuthController::class,"showRegisterForm"])->middleware("auth");
 Route::post('/auth/register',[AuthController::class,"register"])->middleware("auth");
+
+
+// Cronjob
+Route::get('/cron',function(){
+CronWorker::run();
+});

@@ -28,7 +28,6 @@ class CreditController extends Controller
                 return view("creditlist",["credits" => Credit::getActives(),"filter"=>$filter]);
                 break;
             case 'delayed':
-                echo "2";
                 return view("creditlist",["credits" => Credit::getDelayeds(),"filter"=>$filter]);
                 break;
             case 'closed':

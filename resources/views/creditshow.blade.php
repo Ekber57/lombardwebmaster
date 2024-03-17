@@ -28,6 +28,9 @@ td {
         "message" => $message])
 @endcomponent
 @endisset
+<div class=" right-align ">
+        <a href="/customers/create" class="waves-effect waves-light btn">müştəri əlavə et</a>
+    </div>
 <table style="width:100%">
 
 

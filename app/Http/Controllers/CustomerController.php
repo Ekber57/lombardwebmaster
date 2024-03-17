@@ -50,7 +50,7 @@ class CustomerController extends Controller
     public function store(CustomerAddRequest $request)
     {
         $this->authorize('create customer',self::class);
-        Customer::create($request->only([
+        $customer = Customer::create($request->only([
             "name",
             "lastname",
             "middlename",
@@ -58,7 +58,7 @@ class CustomerController extends Controller
             "fincode",
             "adress"
         ]));
-        return view("customerform",["message" => "Müştəri əlavə edildi"]);
+        return redirect('/customers/show/'.$customer->id);
     }
 
     /**
@@ -102,7 +102,7 @@ class CustomerController extends Controller
     public function show(Customer $customer)
     {
     $this->authorize('show customer list',self::class);
-        $credits = Credit::where("customer_id","=",$customer->id)->get();
+        $credits = Credit::where("customer_id","=",$customer->id)->paginate(5);
         return view("customershow",[
             "credits" => $credits,
             "customer"=>$customer
