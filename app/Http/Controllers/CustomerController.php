@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Policies\CustomerPolicy;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\CustomerAddRequest;
+use App\Models\Delaying;
 
 class CustomerController extends Controller
 {
@@ -103,8 +104,10 @@ class CustomerController extends Controller
     {
     $this->authorize('show customer list',self::class);
         $credits = Credit::where("customer_id","=",$customer->id)->paginate(5);
+        $delaings = Delaying::where("customer_id","=",$customer->id)->paginate(5);
         return view("customershow",[
             "credits" => $credits,
+            "delayings" => $delaings,
             "customer"=>$customer
         ]);
     

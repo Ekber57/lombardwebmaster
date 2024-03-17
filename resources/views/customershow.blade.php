@@ -94,6 +94,32 @@ th,td {
         </tbody>
       </table>
       {{ $credits->render('custompagination') }}
+
+      
+      <h5>Gecikmeler</h5>
+      <table>
+        <thead>
+          <tr>
+              <th>Kredit nomresi</th>
+              <th>Mebleq</th>
+              <th>Cerime</th>
+              <th>Gecikib</th>
+          </tr>
+        </thead>
+
+        <tbody>
+        @foreach ($delayings as $delay )
+        <tr>
+          <td>N {{$delay->credit_id}}</td>
+          <td>{{$delay->amount}} ₼</td>
+          <td>{{$delay->penalty_amount}} ₼</td>
+          <td>{{$delay->delayed_days}} gün</td>
+        </tr>
+        @endforeach
+   
+        </tbody>
+      </table>
+      {{ $delayings->render('custompagination') }}
 </div>
 
 </div>
